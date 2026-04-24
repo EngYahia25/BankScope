@@ -107,7 +107,7 @@ OK
 ## 👨‍💻 Author
 
 **EngYahia25**  
-*Senior Software Quality Assurance Engineer*
+*Senior SArtificial intelligence Engineer*
 
 ---
 
