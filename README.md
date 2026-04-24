@@ -107,7 +107,7 @@ OK
 ## 👨‍💻 Author
 
 **EngYahia25**  
-*Senior SArtificial intelligence Engineer*
+*Senior Artificial intelligence Engineer*
 
 ---
 
