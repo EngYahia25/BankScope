@@ -1,0 +1,6 @@
+# No external dependencies required for core logic.
+# Python standard library (unittest) is used for the test suite.
+
+# Recommended for enhanced test reporting (optional):
+pytest==7.4.0
+pytest-sugar==0.9.7
