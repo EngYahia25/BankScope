@@ -1,37 +1,21 @@
-# 🏦 BankScope Testing Suite
+# 🏦 BankScope Full-Stack Banking System
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Backend](https://img.shields.io/badge/backend-Flask-lightgrey.svg)](https://flask.palletsprojects.com/)
 [![Testing Framework](https://img.shields.io/badge/framework-unittest-green.svg)](https://docs.python.org/3/library/unittest.html)
 [![License](https://img.shields.io/badge/license-MIT-important.svg)](LICENSE)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-brightgreen.svg)](https://github.com/EngYahia25/BankScope/graphs/commit-activity)
 
-**BankScope** is a comprehensive software testing suite designed for the **SimpliBank Online Banking System**. It demonstrates industry-standard testing methodologies, covering everything from granular unit tests to complex performance and security scenarios.
+**BankScope** is a complete full-stack banking simulation system. It features a robust Flask REST API, a modern web interface, and a comprehensive suite of 97+ automated tests covering Unit, Integration, System, Security, and Performance layers.
 
 ---
 
 ## 🚀 Overview
 
-This project serves as a robust validation layer for a banking core. It ensures that the system is not only functional but also secure against common threats and capable of handling high-concurrency workloads.
-
-### 🎯 Key Testing Objectives:
-- **Accuracy**: Validate mathematical precision in deposits, withdrawals, and transfers.
-- **Security**: Stress-test authentication flows and brute-force protection.
-- **Resilience**: Ensure the system handles edge cases and invalid inputs gracefully.
-- **Performance**: Benchmark transaction speeds under high-load conditions.
-
----
-
-## 🛠️ Features
-
-The suite is divided into five distinct testing levels:
-
-| Level | Description | File |
-| :--- | :--- | :--- |
-| **Unit** | Isolated tests for `Account` and `UserAuth` classes. | `unit_tests.py` |
-| **Integration** | Verifies the flow between the Bank facade and its components. | `integration_tests.py` |
-| **System** | End-to-end user workflows (Registration to Transfer). | `system_tests.py` |
-| **Security** | Tests for hashing integrity and account lockout logic. | `security_tests.py` |
-| **Performance** | Measures latency and throughput for thousands of transactions. | `performance_tests.py` |
+This project has been upgraded from a pure testing suite into a working application. It demonstrates:
+- **Clean Architecture**: Separation of concerns between Models, Services, and API layers.
+- **Security**: SHA-256 hashing with per-user salting and brute-force lockout protection.
+- **RESTful Design**: Token-based authentication and standardized JSON responses.
+- **Modern UI**: A responsive dashboard for managing transactions in real-time.
 
 ---
 
@@ -40,74 +24,70 @@ The suite is divided into five distinct testing levels:
 ```text
 BankScope/
 │
-├── tests/
-│   ├── __init__.py            # Package initialization
-│   ├── unit_tests.py          # Class-level isolation tests
-│   ├── integration_tests.py   # Component interaction tests
-│   ├── system_tests.py        # End-to-end workflow tests
-│   ├── security_tests.py      # Auth & Security validation
-│   └── performance_tests.py   # Load & Stress testing
+├── backend/
+│   ├── app.py             # Flask API Server & Routes
+│   ├── services.py        # Business logic (Bank Facade)
+│   ├── auth.py            # Hashing & Session management
+│   └── models.py          # Account & Exception models
 │
-├── banking_system.py          # Core Banking Engine (Source Code)
-├── README.md                  # Project documentation
-├── requirements.txt           # Dependency list
-└── .gitignore                 # Files to exclude from Git
+├── frontend/
+│   ├── index.html         # Login/Registration portal
+│   ├── dashboard.html     # User transaction dashboard
+│   ├── style.css          # Premium UI styles
+│   └── app.js             # API Integration (Fetch)
+│
+├── tests/
+│   ├── unit_tests.py      # Granular isolation tests
+│   ├── security_tests.py  # Auth & Security validation
+│   └── ...                # Integration, System, Performance
+│
+├── README.md              # Documentation
+├── requirements.txt       # Flask & CORS dependencies
+└── .gitignore             # Git exclusions
 ```
 
 ---
 
-## ⚙️ Technologies Used
+## 🏃 How to Run
 
-- **Language**: Python 3.8+
-- **Testing**: `unittest` (Standard Library)
-- **Security**: `hashlib` (SHA-256), `secrets` (CSPRNG)
-- **Performance**: `time`, `statistics`
-
----
-
-## 🏃 How to Run Tests
-
-### 1. Setup Environment
-It is recommended to use a virtual environment:
+### 1. Backend Setup
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Install dependencies
 pip install -r requirements.txt
-```
 
-### 2. Run All Tests (Recommended)
-From the project root, use the discovery tool:
+# Start the Flask server
+python -m backend.app
+```
+The API will run at `http://127.0.0.1:5000`.
+
+### 2. Frontend Setup
+Simply open `frontend/index.html` in any modern web browser. 
+No build step is required (Vanilla JS).
+
+### 3. Running Tests
+Verify the entire system logic:
 ```bash
 python -m unittest discover -s tests -p '*_tests.py' -v
 ```
 
-### 3. Run Specific Test Levels
-```bash
-# Run Unit Tests
-python -m unittest tests/unit_tests.py
+---
 
-# Run Security Tests
-python -m unittest tests/security_tests.py
-```
+## 🛠️ API Features
 
-### 4. Example Output
-```text
-test_deposit_increases_balance (tests.unit_tests.TestAccountDeposit) ... ok
-test_account_locks_after_five_failed_attempts (tests.security_tests.TestSecurity) ... ok
-test_performance_high_load (tests.performance_tests.TestPerformance) ... ok (0.45s)
-
-----------------------------------------------------------------------
-Ran 52 tests in 1.24s
-
-OK
-```
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `/register` | POST | Create a new account. |
+| `/login` | POST | Authenticate and receive a Bearer token. |
+| `/balance` | GET | Retrieve current balance (Auth required). |
+| `/transfer` | POST | Move funds to another user (Auth required). |
+| `/history` | GET | View transaction logs (Auth required). |
 
 ---
 
 ## 👨‍💻 Author
 
 **EngYahia25**  
-*Senior Artificial intelligence Engineer*
+*Senior Artificial Intelligence & Full-Stack QA Engineer*
 
 ---
 

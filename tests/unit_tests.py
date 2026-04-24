@@ -15,13 +15,13 @@ Run:
 
 import unittest
 
-from banking_system import (
+from backend.models import (
     Account,
-    UserAuth,
     AuthenticationError,
     InsufficientFundsError,
     InvalidInputError,
 )
+from backend.auth import UserAuth
 
 
 # ══════════════════════════════════════════════

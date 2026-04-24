@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankScope | Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="auth-card">
+            <h1 id="auth-title">Welcome Back</h1>
+            <div id="alert" class="alert"></div>
+            
+            <form id="auth-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-group" id="balance-group" style="display: none;">
+                    <label for="initial_balance">Initial Balance ($)</label>
+                    <input type="number" id="initial_balance" value="0">
+                </div>
+                
+                <button type="submit" id="submit-btn">Login</button>
+                <button type="button" class="secondary" id="toggle-btn">Need an account? Register</button>
+            </form>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

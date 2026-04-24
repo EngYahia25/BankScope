@@ -19,9 +19,9 @@ Run:
 import hashlib
 import unittest
 
-from banking_system import (
-    Bank,
-    UserAuth,
+from backend.services import Bank
+from backend.auth import UserAuth
+from backend.models import (
     AuthenticationError,
     InvalidInputError,
 )

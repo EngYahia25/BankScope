@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankScope | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h2>Welcome, <span id="user-display">User</span></h2>
+            <button class="logout-btn" onclick="handleLogout()">Logout</button>
+        </div>
+
+        <div id="alert" class="alert"></div>
+
+        <div class="balance-card">
+            <p>Available Balance</p>
+            <div class="balance-amount" id="balance-display">$0.00</div>
+        </div>
+
+        <div class="actions-grid">
+            <!-- Deposit -->
+            <div class="action-card">
+                <h3>Deposit Funds</h3>
+                <div class="form-group">
+                    <input type="number" id="deposit-amount" placeholder="Amount">
+                </div>
+                <button onclick="handleTransaction('deposit')">Deposit</button>
+            </div>
+
+            <!-- Withdraw -->
+            <div class="action-card">
+                <h3>Withdraw Funds</h3>
+                <div class="form-group">
+                    <input type="number" id="withdraw-amount" placeholder="Amount">
+                </div>
+                <button onclick="handleTransaction('withdraw')">Withdraw</button>
+            </div>
+
+            <!-- Transfer -->
+            <div class="action-card">
+                <h3>Transfer Money</h3>
+                <div class="form-group">
+                    <input type="text" id="transfer-to" placeholder="Recipient Username">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="transfer-amount" placeholder="Amount">
+                </div>
+                <button onclick="handleTransaction('transfer')">Transfer</button>
+            </div>
+        </div>
+
+        <div class="action-card history-list">
+            <h3>Recent Transactions</h3>
+            <div id="history-container">
+                <p style="color: var(--text-muted)">No transactions yet.</p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        // Auto-load balance on page load
+        if (window.location.pathname.includes('dashboard')) {
+            loadDashboard();
+        }
+    </script>
+</body>
+</html>

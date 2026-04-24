@@ -1,6 +1,7 @@
-# No external dependencies required for core logic.
-# Python standard library (unittest) is used for the test suite.
+# Full-Stack Dependencies
+Flask==2.3.2
+Flask-Cors==4.0.0
 
-# Recommended for enhanced test reporting (optional):
+# Testing
 pytest==7.4.0
 pytest-sugar==0.9.7
